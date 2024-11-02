@@ -1,0 +1,20 @@
+services:
+  bi-peeplytics-api:
+    container_name: bi-peeplytics-api
+    image: registry.hilmy.dev/bi-peeplytics-api
+    restart: always
+    networks:
+      - podincloud-network
+
+  bi-peeplytics-web:
+    container_name: bi-peeplytics-web
+    image: registry.hilmy.dev/bi-peeplytics-web
+    restart: always
+    networks:
+      - podincloud-network
+    depends_on:
+      - bi-peeplytics-api
+
+networks:
+  podincloud-network:
+    external: true

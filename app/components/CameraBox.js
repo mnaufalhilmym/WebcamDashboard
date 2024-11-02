@@ -8,7 +8,7 @@ const CameraBox = () => {
   useEffect(() => {
     const fetchCounter = async () => {
       try {
-        const response = await fetch("http://localhost:5000/counter");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/counter`);
         const data = await response.json();
         setCount(data.count);
       } catch (error) {
@@ -26,7 +26,7 @@ const CameraBox = () => {
       <h1 className='font-bold text-white text-left text-[1.5vw]'>1. Camera 1</h1>
       <div className='w-full h-[29.635vw] bg-white rounded-[0.521vw] overflow-hidden'>
         <img
-          src="http://localhost:5000/video_feed"
+          src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/video_feed`}
           alt="webcam feed"
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
